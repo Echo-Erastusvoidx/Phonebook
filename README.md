@@ -61,7 +61,7 @@ Description: Adds a new contact to the phone book. It validates the contact's na
 Description: Prompts the user to enter a name to search for. If the contact is found, it is displayed. If not, an appropriate message is shown.
 
 ## Search Code
-<img src="![WhatsApp Image 2024-10-13 at 19 54 59_65f3d19e](https://github.com/user-attachments/assets/dd7ab77b-f398-40f5-a15b-3e747292567c)">
+<img src=(https://github.com/user-attachments/assets/dd7ab77b-f398-40f5-a15b-3e747292567c)>
 
 
 

@@ -6,6 +6,8 @@ The Phone Book application is a simple Java Swing-based Graphical User Interface
 
 The main class is Phonebook GUI, which extends JFrame and serves as the primary GUI for interacting with the phone book.
 
+
+
 # Modules
 
 ### import java.util.ArrayList;
@@ -24,6 +26,8 @@ The main class is Phonebook GUI, which extends JFrame and serves as the primary 
 
 •	Description: This module imports the Scanner class from the java.util package. Scanner is used to read input from various sources, such as user input from the console.
 
+
+
 # Contact Class
 
 Description: Represents a single contact in the phone book, consisting of a name and a phone number.
@@ -36,6 +40,8 @@ String phone Number: The contact's phone number.
 ## Constructor:
 
 Contact(String name, String phone Number): Initializes a contact with the provided name and phone number.
+
+
 
 # Phonebook GUI Class
 
@@ -51,6 +57,8 @@ JText Field name Field, phone Field: Text fields for inputting the contact's nam
 
 Phonebook GUI(): Sets up the graphical interface, including buttons and text fields for user interaction.
 
+
+
 # Functions
 
 ## 1.Insertion
@@ -60,8 +68,143 @@ Description: Adds a new contact to the phone book. It validates the contact's na
 ## 2. Search contacts
 Description: Prompts the user to enter a name to search for. If the contact is found, it is displayed. If not, an appropriate message is shown.
 
-## Search Code
-<img src=(https://github.com/user-attachments/assets/dd7ab77b-f398-40f5-a15b-3e747292567c)>
+## Contributor: Jollene Joemba
+
+## 3. Display contacts
+
+Description:  Displays the list of all contacts in the phone book. If no contacts are available, it shows a message stating that there are no contacts.
+
+## Contributor: Erastus Mukuve
+
+## 4. Delete contacts
+
+Description: Prompts the user to enter the name of a contact to delete. If a contact with the specified name is found, it is deleted. Otherwise, an error message is shown.
+
+## Contributor: Stephan Ndabeni
+
+## 5.Update contacts
+
+Description: The primary purpose of the update Contact function is to find a contact by name in the phonebook and update their phone number with a new one provided by the user.
+
+## Contributor: Heron Hamutenya
+
+## 6.Sort contacts
+
+Description: Sorts the contacts alphabetically by name (case-insensitive). If no contacts are available, a message is displayed.
+
+## Contributor: Sophia Shinedima
+
+# Pseudocode 
+
+    FUNCTION addContact(name, phoneNumber):
+        CREATE new Contact with name and phoneNumber
+        ADD new Contact to contacts list
+
+    FUNCTION displayContacts():
+        IF contacts list is empty THEN
+            PRINT "No contacts found."
+        ELSE
+            FOR each contact in contacts DO
+                PRINT "Name: " + contact.name + ", Phone Number: " + contact.phoneNumber
+            END FOR
+        END IF
+
+    FUNCTION binarySearch(name):
+        SET start to 0
+        SET end to size of contacts - 1
+        WHILE start is less than or equal to end DO
+            SET middle to start + (end - start) / 2
+            SET contact to contacts[middle]
+            SET comparison to contact.name compared to name
+            IF comparison is less than 0 THEN
+                SET start to middle + 1
+            ELSE IF comparison is greater than 0 THEN
+                SET end to middle - 1
+            ELSE
+                RETURN middle  // Found the contact
+            END IF
+        END WHILE
+        RETURN -1  // Contact not found
+
+    FUNCTION searchContact(name):
+        CALL sortContacts()  // Ensure contacts are sorted
+        SET index to result of binarySearch(name)
+        IF index is not -1 THEN
+            SET contact to contacts[index]
+            PRINT "Found: Name: " + contact.name + ", Phone Number: " + contact.phoneNumber
+        ELSE
+            PRINT "Contact not found."
+        END IF
+
+    FUNCTION deleteContact(name):
+        REMOVE contacts from the list where contact.name equals name
+
+    FUNCTION updateContact(oldName, newName, newPhoneNumber):
+        FOR each contact in contacts DO
+            IF contact.name equals oldName THEN
+                SET contact.name to newName
+                SET contact.phoneNumber to newPhoneNumber
+                BREAK the loop
+            END IF
+        END FOR
+
+    FUNCTION sortContacts():
+        SORT contacts list by contact.name
+
+END CLASS
+
+FUNCTION main():
+    CREATE PhoneBook instance named phoneBook
+    WHILE true DO
+        PRINT menu options:
+            "1. Add Contact"
+            "2. Display Contacts"
+            "3. Delete Contact"
+            "4. Update Contact"
+            "5. Sort Contacts"
+            "6. Search Contact"
+            "7. Exit"
+        GET user choice
+
+        IF ( choice ==1)
+            PROMPT for name and phone number
+            CALL phoneBook.addContact(name, phoneNumber)
+        ELSE IF ( choice ==2)  THEN
+            CALL phoneBook.displayContacts()
+        ELSE IF ( choice ==3) THEN
+            PROMPT for name of contact to delete
+            CALL phoneBook.deleteContact(name)
+        ELSE IF ( choice ==4) THEN
+            PROMPT for current name, new name, and new phone number
+            CALL phoneBook.updateContact(oldName, newName, newPhoneNumber)
+        ELSE IF( choice ==5) THEN
+            CALL phoneBook.sortContacts()
+            PRINT "Contacts sorted."
+        ELSE IF (choice ==6)  THEN
+            PROMPT for name to search
+            CALL phoneBook.searchContact(name)
+        ELSE IF (choice ==7) THEN
+            BREAK the loop
+        END IF
+    END WHILE
+
+    CLOSE scanner
+END FUNCTION
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
